@@ -29,9 +29,16 @@ async function httpSubmitLaunch(launch) {
   }
 }
 
+// Delete launch with given ID.
 async function httpAbortLaunch(id) {
-  // TODO: Once API is ready.
-  // Delete launch with given ID.
+  console.log("id i n fe", id)
+  try {
+    return await fetch(`${URL}/launches/${id}`, {
+      method: "delete",
+    })
+  } catch (err) {
+    return { ok: false }
+  }
 }
 
 export { httpGetPlanets, httpGetLaunches, httpSubmitLaunch, httpAbortLaunch }
